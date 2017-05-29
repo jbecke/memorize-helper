@@ -1,6 +1,7 @@
 # memorize.py {input csv file} {reverse flag, 1 or 0}
 # By Jacob Beckerman, jacob dot beckerman at gmail dot com
 # Reverse flag = 1: will switch memorizing key->value to value->key
+# Type q tomove on
 
 # Takes input from a text file in the form:
 #	key, value
@@ -28,6 +29,10 @@ for line in fileinput.input(file):
 			if guess == value:
 				print("_/\n\n")
 				break
+			elif guess == 'q':
+				print("X\n\n")
+				wrong_list.add(key)
+				break
 			else:
 				wrong_list.add(key)
 	elif rflag == 1:
@@ -36,6 +41,10 @@ for line in fileinput.input(file):
 			guess = input().strip()
 			if guess == key:
 				print("_/\n\n")
+				break
+			elif guess == 'q':
+				print("X\n\n")
+				wrong_list.add(key)
 				break
 			else:
 				wrong_list.add(value)
